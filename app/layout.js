@@ -8,6 +8,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { CartSheet } from "@/components/cart-sheet"
+import { MovingBanner } from "@/components/MovingBanner"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <StoreProvider>
+          <MovingBanner />
           <nav className="border-b">
             <div className="container mx-auto px-4 py-4">
               <div className="flex items-center justify-between">

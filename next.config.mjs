@@ -13,9 +13,16 @@ const nextConfig = {
         {
           protocol: 'https',
           hostname: 'm.media-amazon.com',
-        }
+        },
+        {
+          protocol: 'https',
+          hostname: 'randomuser.me',
+        },
       ],
       domains: ['images.unsplash.com', 'plus.unsplash.com', 'm.media-amazon.com'],
+    },
+    experimental: {
+      appDir: true,
     },
   }
   

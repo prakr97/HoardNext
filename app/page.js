@@ -8,6 +8,9 @@ import { Input } from "@/components/ui/input"
 import { CartSheet } from "@/components/cart-sheet"
 import { QuantitySelector } from "@/components/quantity-selector"
 import { useStore } from "@/lib/store-context"
+import { FAQ } from "@/components/FAQ"
+import { Testimonials } from "@/components/Testimonials"
+import { Services } from "@/components/Services"
 import React from "react"
 
 export default function Home() {
@@ -68,6 +71,9 @@ export default function Home() {
         ))}
       </section>
 
+      {/* Services Section */}
+      <Services />
+
       {/* Categories Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -125,6 +131,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
+      {/* FAQ Section */}
+      <FAQ />
     </div>
   )
 }
