@@ -75,16 +75,22 @@ export default function Home() {
       {/* Services Section */}
       <Services />
 
+      {/* Flash Sale Section */}
+      <FlashSale />
+
       {/* Categories Section */}
-      <section className="py-16">
+      <section className="py-16 bg-gradient-to-r from-amber-50 to-amber-100">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Trending Categories</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-amber-900 mb-2">Trending Categories</h2>
+            <p className="text-amber-700">Explore our curated collection of premium products</p>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
             {categories.map((category) => (
               <Link
                 key={category.slug}
                 href={`/category/${category.slug}`}
-                className="group relative overflow-hidden rounded-lg h-[200px] sm:h-[250px] md:h-[300px]"
+                className="group relative overflow-hidden rounded-lg h-[200px] sm:h-[250px] md:h-[300px] shadow-md hover:shadow-lg transition-shadow"
               >
                 <div className="w-full h-full relative">
                   <Image
@@ -97,8 +103,8 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4">
-                    <h3 className="text-xl font-semibold text-white">{category.name}</h3>
-                    <p className="text-sm text-gray-200">{category.count} Products</p>
+                    <h3 className="text-xl font-semibold text-amber-50">{category.name}</h3>
+                    <p className="text-sm text-amber-100">{category.count} Products</p>
                   </div>
                 </div>
               </Link>
@@ -108,21 +114,29 @@ export default function Home() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Featured Products</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-amber-900 mb-2">Featured Products</h2>
+            <p className="text-amber-700">Discover our most popular and trending items</p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
             {featuredProducts.map((product) => (
               <Link href={`/product/${product.id}`} key={product.id}>
-                <div className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 border border-amber-100">
                   <div className="aspect-square relative">
                     <Image src={product.image?.[0] || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
+                    <div className="absolute top-2 right-2">
+                      <div className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium">
+                        Featured
+                      </div>
+                    </div>
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
-                    <p className="text-gray-600 mb-4">{product.description}</p>
+                  <div className="p-6">
+                    <h3 className="font-semibold text-lg mb-2 text-amber-900">{product.name}</h3>
+                    <p className="text-amber-700 mb-4 text-sm">{product.description}</p>
                     <div className="flex items-center justify-between">
-                      <span className="text-xl font-bold">${product.price}</span>
+                      <span className="text-xl font-bold text-amber-800">${product.price}</span>
                       <QuantitySelector product={product} />
                     </div>
                   </div>
@@ -135,9 +149,6 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <Testimonials />
-
-      {/* Flash Sale Section */}
-      <FlashSale />
 
       {/* FAQ Section */}
       <FAQ />

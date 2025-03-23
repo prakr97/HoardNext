@@ -6,21 +6,18 @@ const testimonials = [
   {
     name: "Sarah Johnson",
     role: "Interior Designer",
-    image: "https://randomuser.me/api/portraits/women/1.jpg",
     content: "The quality of products and attention to detail is exceptional. Every piece I've ordered has exceeded my expectations. My clients are always impressed!",
     rating: 5
   },
   {
     name: "Michael Chen",
     role: "Home Owner",
-    image: "https://randomuser.me/api/portraits/men/2.jpg",
     content: "Outstanding customer service and beautiful products. The team went above and beyond to help me find the perfect lighting solutions for my home.",
     rating: 5
   },
   {
     name: "Emma Davis",
     role: "Architect",
-    image: "https://randomuser.me/api/portraits/women/3.jpg",
     content: "I've been using their products for multiple projects. The consistency in quality and design is remarkable. Highly recommended for professionals.",
     rating: 5
   }
@@ -28,7 +25,7 @@ const testimonials = [
 
 const StarIcon = () => (
   <svg
-    className="w-5 h-5 text-yellow-400"
+    className="w-5 h-5 text-amber-400"
     fill="currentColor"
     viewBox="0 0 20 20"
   >
@@ -38,31 +35,29 @@ const StarIcon = () => (
 
 export function Testimonials() {
   return (
-    <section className="w-full py-16 bg-gray-50">
+    <section className="w-full py-16 bg-gradient-to-b from-white to-amber-50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">What Our Customers Say</h2>
-            <p className="text-gray-600">Discover why customers love shopping with us</p>
+            <h2 className="text-3xl font-bold text-amber-900 mb-2">What Our Customers Say</h2>
+            <p className="text-amber-700">Discover why customers love shopping with us</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-sm p-8 transform hover:-translate-y-1 transition-transform duration-300"
+                className="bg-white rounded-xl shadow-sm p-8 border border-amber-100 hover:shadow-md transition-all duration-300"
               >
                 <div className="flex items-center mb-6">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4">
-                    <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
-                      <span className="text-xl font-semibold text-gray-600">
-                        {testimonial.name.charAt(0)}
-                      </span>
-                    </div>
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4 bg-amber-100 flex items-center justify-center">
+                    <span className="text-xl font-semibold text-amber-700">
+                      {testimonial.name.charAt(0)}
+                    </span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">{testimonial.name}</h3>
-                    <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                    <h3 className="font-semibold text-lg text-amber-900">{testimonial.name}</h3>
+                    <p className="text-amber-600 text-sm">{testimonial.role}</p>
                   </div>
                 </div>
                 
@@ -73,7 +68,7 @@ export function Testimonials() {
                 </div>
                 
                 <blockquote>
-                  <p className="text-gray-700 leading-relaxed">"{testimonial.content}"</p>
+                  <p className="text-amber-800 leading-relaxed italic">"{testimonial.content}"</p>
                 </blockquote>
               </div>
             ))}
