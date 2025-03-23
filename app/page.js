@@ -11,6 +11,7 @@ import { useStore } from "@/lib/store-context"
 import { FAQ } from "@/components/FAQ"
 import { Testimonials } from "@/components/Testimonials"
 import { Services } from "@/components/Services"
+import { FlashSale } from "@/components/FlashSale"
 import React from "react"
 
 export default function Home() {
@@ -134,6 +135,9 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <Testimonials />
+
+      {/* Flash Sale Section */}
+      <FlashSale />
 
       {/* FAQ Section */}
       <FAQ />
