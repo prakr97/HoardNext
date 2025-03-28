@@ -25,9 +25,6 @@ const nextConfig = {
       ],
       domains: ['images.unsplash.com', 'plus.unsplash.com', 'm.media-amazon.com'],
     },
-    experimental: {
-      appDir: true,
-    },
   }
   
   export default nextConfig

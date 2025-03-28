@@ -20,8 +20,6 @@ export default function TrendingCategoriesAdmin() {
   }
 
   const handleUpdateCategory = (index, updatedCategory) => {
-    console.log(index,updatedCategory,'------updatedCategory')
-    console.log(categories[index].slug,'------categories[index].slug')
     updateCategory(categories[index].slug, updatedCategory)
   }
 

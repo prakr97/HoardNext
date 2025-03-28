@@ -5,6 +5,40 @@ import { ShoppingBag, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
+import { QuantitySelector } from '@/components/quantity-selector';
+
+const flashSaleProducts = [
+  {
+    id: 'flash-1',
+    name: 'Smart LED Ceiling Light',
+    description: 'Voice-controlled, color-changing smart ceiling light',
+    price: 4999,
+    originalPrice: 6999,
+    discount: 30,
+    image: "https://images.unsplash.com/photo-1546435770-a3e736c05a2f?ixlib=rb-4.0.3",
+    featured: true
+  },
+  {
+    id: 'flash-2',
+    name: 'Modern Wall Sconce',
+    description: 'Elegant wall-mounted lighting fixture with adjustable brightness',
+    price: 2499,
+    originalPrice: 3299,
+    discount: 25,
+    image: "https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3",
+    featured: true
+  },
+  {
+    id: 'flash-3',
+    name: 'Designer Table Lamp',
+    description: 'Contemporary table lamp with touch control and USB charging',
+    price: 1999,
+    originalPrice: 2799,
+    discount: 28,
+    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-4.0.3",
+    featured: true
+  }
+];
 
 export function FlashSale() {
   // Set the end date for the sale (2 days from now)
@@ -52,100 +86,89 @@ export function FlashSale() {
   );
 
   return (
-    <section className="py-12 bg-gradient-to-r from-amber-50 to-amber-100">
+    <section className="py-8 bg-gradient-to-r from-amber-50 to-amber-100">
       <div className="container mx-auto px-4">
         <div className="bg-white rounded-xl shadow-md overflow-hidden">
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-3/5 p-8 md:p-12">
-              <div className="inline-block px-4 py-1 rounded-full bg-amber-100 text-amber-800 text-sm font-medium mb-4">
+          <div className="flex flex-col md:flex-row items-start">
+            <div className="md:w-2/5 p-6 md:p-8">
+              <div className="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-medium mb-3">
                 Limited Time Offer
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Flash Sale on Premium Products</h2>
-              <p className="text-gray-600 mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">Flash Sale on Premium Products</h2>
+              <p className="text-gray-600 text-sm mb-4">
                 Don't miss out on our exclusive deals for high-quality products. Up to 30% off
                 on selected items for a limited time only.
               </p>
               
-              <div className="flex flex-wrap gap-2 mb-6">
-                <div className="flex items-center text-green-600 text-sm">
-                  <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex items-center text-green-600 text-xs">
+                  <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                   Free shipping
                 </div>
-                <div className="flex items-center text-green-600 text-sm">
-                  <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="flex items-center text-green-600 text-xs">
+                  <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                   30-day returns
                 </div>
-                <div className="flex items-center text-green-600 text-sm">
-                  <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="flex items-center text-green-600 text-xs">
+                  <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                   2-year warranty
                 </div>
               </div>
               
-              <div className="mb-8">
+              <div className="mb-6">
                 <div className="flex items-center mb-2">
-                  <Clock className="h-5 w-5 text-amber-800 mr-2" />
-                  <span className="text-amber-800 font-medium">Deal ends in:</span>
+                  <Clock className="h-4 w-4 text-amber-800 mr-1" />
+                  <span className="text-amber-800 font-medium text-sm">Deal ends in:</span>
                 </div>
-                <div className="flex space-x-3">
+                <div className="flex space-x-2">
                   <CountdownBox value={timeLeft.days} label="Days" />
                   <CountdownBox value={timeLeft.hours} label="Hours" />
                   <CountdownBox value={timeLeft.minutes} label="Minutes" />
                   <CountdownBox value={timeLeft.seconds} label="Seconds" />
                 </div>
               </div>
-              
-              <Link href="/products" passHref>
-                <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-medium flex items-center">
-                  <ShoppingBag className="mr-2 h-5 w-5" />
-                  Shop Now
-                </Button>
-              </Link>
             </div>
             
-            <div className="md:w-2/5 bg-amber-200 p-8 md:p-12 flex items-center justify-center">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white p-4 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
-                  <div className="bg-rose-600 text-white text-xs font-bold px-2 py-1 rounded absolute -mt-6">30% OFF</div>
-                  <div className="h-24 sm:h-32 mb-3 overflow-hidden relative">
-                    <Image 
-                      src="https://images.unsplash.com/photo-1546435770-a3e736c05a2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1365&q=80" 
-                      alt="Smart Speaker" 
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <h3 className="text-sm font-bold mb-1">Smart Speaker</h3>
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <span className="text-amber-600 font-bold">₹4,999</span>
-                      <span className="text-gray-400 text-xs line-through ml-1">₹6,999</span>
+            <div className="md:w-3/5 p-4 md:p-6 bg-amber-50/50">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {flashSaleProducts.map((product) => (
+                  <Link href={`/product/${product.id}`} key={product.id} className="block w-full">
+                    <div className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 border border-amber-100 max-w-[180px] mx-auto">
+                      <div className="relative w-full" style={{ height: '220px' }}>
+                        <Image 
+                          src={product.image} 
+                          alt={product.name} 
+                          fill 
+                          className="object-cover"
+                        />
+                        <div className="absolute top-1 right-1">
+                          <div className="bg-rose-600 text-white px-1.5 py-0.5 rounded-full text-[10px] font-medium">
+                            {product.discount}% OFF
+                          </div>
+                        </div>
+                      </div>
+                      <div className="p-2">
+                        <h3 className="font-semibold text-xs mb-0.5 text-amber-900 line-clamp-1">{product.name}</h3>
+                        <p className="text-amber-700 mb-1.5 text-[10px] line-clamp-2">{product.description}</p>
+                        <div className="flex items-center justify-between">
+                          <div className="flex flex-col">
+                            <span className="text-sm font-bold text-amber-800">₹{product.price}</span>
+                            <span className="text-gray-400 text-[10px] line-through">₹{product.originalPrice}</span>
+                          </div>
+                          <div className="scale-75 origin-right -mr-1">
+                            <QuantitySelector product={product} />
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
-                  <div className="bg-rose-600 text-white text-xs font-bold px-2 py-1 rounded absolute -mt-6">25% OFF</div>
-                  <div className="h-24 sm:h-32 mb-3 overflow-hidden relative">
-                    <Image 
-                      src="https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=927&q=80" 
-                      alt="Wireless Earbuds" 
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <h3 className="text-sm font-bold mb-1">Wireless Earbuds</h3>
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <span className="text-amber-600 font-bold">₹2,499</span>
-                      <span className="text-gray-400 text-xs line-through ml-1">₹3,299</span>
-                    </div>
-                  </div>
-                </div>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>

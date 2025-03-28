@@ -13,6 +13,8 @@ import { Testimonials } from "@/components/Testimonials"
 import { Services } from "@/components/Services"
 import { FlashSale } from "@/components/FlashSale"
 import React from "react"
+import { ProductBanners } from "@/components/ProductBanners"
+
 
 export default function Home() {
   const { categories, products } = useStore()
@@ -48,9 +50,9 @@ export default function Home() {
     return () => clearInterval(timer)
   }, [])
 
-  console.log(categories,'------categories')
   return (
     <div className="min-h-screen bg-white">
+
       {/* Hero Section Carousel */}
       <section className="relative w-full h-auto bg-gray-900">
         {carouselItems.map((item, index) => (
@@ -147,6 +149,7 @@ export default function Home() {
         </div>
       </section>
 
+      <ProductBanners />
       {/* Testimonials Section */}
       <Testimonials />
 
