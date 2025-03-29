@@ -12,7 +12,7 @@ import { FAQ } from "@/components/FAQ"
 import { Testimonials } from "@/components/Testimonials"
 import { Services } from "@/components/Services"
 import { FlashSale } from "@/components/FlashSale"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { ProductBanners } from "@/components/ProductBanners"
 
 
@@ -20,7 +20,6 @@ export default function Home() {
   const { categories, products } = useStore()
   const featuredProducts = products.filter((product) => product.featured)
   
-  // Add carousel data with showText option
   const carouselItems = [
     {
       image: "https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/68da4c44-b4b7-4282-95f1-e548ab110680._CR0%2C0%2C3000%2C600_SX1500_.png",
@@ -40,38 +39,65 @@ export default function Home() {
     },
   ]
 
-  const [currentSlide, setCurrentSlide] = React.useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % carouselItems.length)
-    }, 2000)
+      setIsTransitioning(true)
+      setCurrentSlide(prev => prev + 1)
+    }, 5000) // Changed to 3 seconds for better viewing
 
     return () => clearInterval(timer)
   }, [])
+
+  // Handle the infinite loop transition
+  useEffect(() => {
+    if (currentSlide >= carouselItems.length) {
+      // Wait for the transition to complete before resetting
+      const timeout = setTimeout(() => {
+        setIsTransitioning(false)
+        setCurrentSlide(0)
+      }, 500) // Half a second transition
+      return () => clearTimeout(timeout)
+    }
+  }, [currentSlide])
 
   return (
     <div className="min-h-screen bg-white">
 
       {/* Hero Section Carousel */}
-      <section className="relative w-full h-auto bg-gray-900">
-        {carouselItems.map((item, index) => (
-          <div
-            key={index}
-            className={`relative transition-opacity duration-500 ${
-              index === currentSlide ? "block opacity-100" : "hidden opacity-0"
-            }`}
-          >
+      <section className="relative w-full h-auto bg-gray-900 overflow-hidden">
+        <div 
+          className={`flex ${isTransitioning ? 'transition-transform duration-500' : ''}`}
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {carouselItems.map((item, index) => (
+            <div
+              key={index}
+              className="relative w-full flex-shrink-0"
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={3000}
+                height={600}
+                className="w-full h-full object-cover"
+                priority={index === 0}
+              />
+            </div>
+          ))}
+          <div className="relative w-full flex-shrink-0">
             <Image
-              src={item.image}
-              alt={item.title}
+              src={carouselItems[0].image}
+              alt={carouselItems[0].title}
               width={3000}
               height={600}
-              className="w-full h-auto"
-              priority={index === 0}
+              className="w-full h-full object-cover"
+              priority={false}
             />
           </div>
-        ))}
+        </div>
       </section>
 
       {/* Services Section */}
