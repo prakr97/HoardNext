@@ -37,7 +37,6 @@ const desktopServices = services;
 export function Services() {
   const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setMounted(true);
@@ -49,16 +48,8 @@ export function Services() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  useEffect(() => {
-    setIsLoading(false);
-  }, []);
-
   // Show mobile services by default on mobile
   const visibleServices = mounted ? (isMobile ? mobileServices : desktopServices) : mobileServices;
-
-  if (isLoading) {
-    return <div className="grid grid-cols-3 sm:grid-cols-4"></div>;
-  }
 
   return (
     <section className="py-4 sm:py-8 md:py-12 bg-white">
