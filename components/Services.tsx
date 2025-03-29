@@ -46,12 +46,10 @@ export function Services() {
     ? services.filter(service => service.isMobile)
     : services;
 
-  const gridCols = `grid-cols-${visibleServices.length}`;
-
   return (
     <section className="py-4 sm:py-8 md:py-12 bg-white">
       <div className="container mx-auto px-2 sm:px-4">
-        <div className={`grid ${gridCols} sm:grid-cols-4 gap-2 sm:gap-4 md:gap-8`}>
+        <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 md:gap-8">
           {visibleServices.map((service, index) => (
             <div
               key={index}
