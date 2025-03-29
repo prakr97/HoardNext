@@ -122,22 +122,22 @@ export function Testimonials() {
   const [selectedTestimonial, setSelectedTestimonial] = useState<typeof testimonials[0] | null>(null);
 
   return (
-    <section className="py-16 bg-gradient-to-b from-amber-50/50 to-white">
+    <section className="py-8 md:py-16 bg-gradient-to-b from-amber-50/50 to-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-amber-900 mb-2">What Our Customers Say</h2>
-          <p className="text-amber-700">Real feedback from real customers</p>
+        <div className="text-center mb-6 md:mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-amber-900 mb-1 md:mb-2">What Our Customers Say</h2>
+          <p className="text-sm md:text-base text-amber-700">Real feedback from real customers</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto grid-flow-dense">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-auto grid-flow-dense">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col h-auto border border-gray-100 lg:col-start-[calc(3-((index)%3))]"
+              className="bg-white rounded-lg md:rounded-xl p-4 md:p-6 shadow-sm md:shadow-md hover:shadow-md md:hover:shadow-lg transition-all duration-300 flex flex-col h-auto border border-gray-100 lg:col-start-[calc(3-((index)%3))]"
             >
-              <div className="flex items-start justify-between mb-4 shrink-0">
+              <div className="flex items-start justify-between mb-3 md:mb-4 shrink-0">
                 <div className="flex items-center">
-                  <div className="w-10 h-10 relative rounded-full overflow-hidden bg-amber-100 shrink-0">
+                  <div className="w-8 h-8 md:w-10 md:h-10 relative rounded-full overflow-hidden bg-amber-100 shrink-0">
                     <Image
                       src={testimonial.avatar}
                       alt={testimonial.author}
@@ -145,16 +145,16 @@ export function Testimonials() {
                       className="object-cover"
                     />
                   </div>
-                  <div className="ml-3">
+                  <div className="ml-2 md:ml-3">
                     <div className="flex items-center gap-1">
-                      <h4 className="font-semibold text-gray-900">{testimonial.author}</h4>
+                      <h4 className="text-sm md:text-base font-semibold text-gray-900">{testimonial.author}</h4>
                       {testimonial.verifiedPurchase && (
-                        <svg className="w-4 h-4 text-blue-500 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                        <svg className="w-3 h-3 md:w-4 md:h-4 text-blue-500 shrink-0" viewBox="0 0 20 20" fill="currentColor">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                         </svg>
                       )}
                     </div>
-                    <div className="flex items-center gap-1.5 text-sm text-gray-500 flex-wrap">
+                    <div className="flex items-center gap-1 text-xs md:text-sm text-gray-500 flex-wrap">
                       <span className="flex items-center gap-1">
                         <PlatformIcon platform={testimonial.platform} />
                         {testimonial.platform}
@@ -167,33 +167,8 @@ export function Testimonials() {
               </div>
 
               {testimonial.images && testimonial.images.length > 0 && (
-                <div className="mb-4 shrink-0">
+                <div className="mb-3 md:mb-4 shrink-0">
                   <div className="flex">
-                    {/* Thumbnail Column */}
-                    {/* {testimonial.images.length > 1 && (
-                      <div className="flex flex-col justify-center gap-2">
-                        {testimonial.images.slice(1).map((image, imgIndex) => (
-                          <div
-                            key={imgIndex}
-                            className="relative w-[80px] aspect-square rounded-lg overflow-hidden bg-gray-50 cursor-pointer hover:opacity-90 transition-opacity"
-                            onClick={() => {
-                              setSelectedImage(image);
-                              setSelectedTestimonial(testimonial);
-                              setCurrentImageIndex(imgIndex + 1);
-                            }}
-                          >
-                            <Image
-                              src={image}
-                              alt={`Additional review image ${imgIndex + 1} by ${testimonial.author}`}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    )} */}
-                    
-                    {/* Primary Image */}
                     <div 
                       className="relative rounded-lg overflow-hidden bg-gray-50 cursor-pointer flex-1"
                       onClick={() => {
@@ -202,7 +177,7 @@ export function Testimonials() {
                         setCurrentImageIndex(0);
                       }}
                     >
-                      <div className="relative h-[300px] w-full">
+                      <div className="relative h-[200px] md:h-[300px] w-full">
                         <Image
                           src={testimonial.images[0]}
                           alt={`Review image by ${testimonial.author}`}
@@ -215,11 +190,11 @@ export function Testimonials() {
                 </div>
               )}
 
-              <div className="flex mb-3 shrink-0">
+              <div className="flex mb-2 md:mb-3 shrink-0">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <svg
                     key={i}
-                    className="w-5 h-5 text-amber-400"
+                    className="w-4 h-4 md:w-5 md:h-5 text-amber-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -228,11 +203,11 @@ export function Testimonials() {
                 ))}
               </div>
 
-              <p className="text-gray-700 leading-relaxed grow">{testimonial.text}</p>
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed grow">{testimonial.text}</p>
 
               {testimonial.verifiedPurchase && (
-                <div className="mt-4 pt-4 border-t border-gray-100 flex items-center gap-2 text-sm text-green-600 shrink-0">
-                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <div className="mt-3 md:mt-4 pt-3 md:pt-4 border-t border-gray-100 flex items-center gap-2 text-xs md:text-sm text-green-600 shrink-0">
+                  <svg className="w-3 h-3 md:w-4 md:h-4 shrink-0" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                   </svg>
                   Verified Purchase
