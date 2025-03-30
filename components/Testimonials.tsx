@@ -116,7 +116,7 @@ const PlatformIcon = ({ platform }: { platform: string }) => {
   }
 };
 
-export function Testimonials() {
+export function Testimonials({ cardsCount=6 }: { cardsCount: number }) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [selectedTestimonial, setSelectedTestimonial] = useState<typeof testimonials[0] | null>(null);
@@ -130,7 +130,7 @@ export function Testimonials() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-auto grid-flow-dense">
-          {testimonials.map((testimonial, index) => (
+          {testimonials.slice(0, cardsCount).map((testimonial, index) => (
             <div
               key={index}
               className="bg-white rounded-lg md:rounded-xl p-4 md:p-6 shadow-sm md:shadow-md hover:shadow-md md:hover:shadow-lg transition-all duration-300 flex flex-col h-auto border border-gray-100 lg:col-start-[calc(3-((index)%3))]"
