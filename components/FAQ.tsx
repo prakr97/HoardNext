@@ -37,25 +37,25 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section className="w-full py-16 bg-gradient-to-b from-amber-50 to-white">
-      <div className="container mx-auto px-4">
+    <section className="w-full py-8 sm:py-16 bg-gradient-to-b from-amber-50 to-white">
+      <div className="container mx-auto px-3 sm:px-4">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-amber-900 mb-2">Frequently Asked Questions</h2>
-            <p className="text-amber-700">Find answers to common questions about our services</p>
+          <div className="text-center mb-6 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-amber-900 mb-1 sm:mb-2">Frequently Asked Questions</h2>
+            <p className="text-sm sm:text-base text-amber-700">Find answers to common questions about our services</p>
           </div>
-          <div className="bg-white rounded-xl shadow-sm p-6 border border-amber-100">
-            <Accordion type="single" collapsible className="w-full space-y-4">
+          <div className="bg-white rounded-lg sm:rounded-xl shadow-sm p-3 sm:p-6 border border-amber-100">
+            <Accordion type="single" collapsible className="w-full space-y-2 sm:space-y-4">
               {faqs.map((faq, index) => (
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="border border-amber-200 rounded-lg px-4 mb-4 data-[state=open]:bg-amber-50 transition-colors"
+                  className="border border-amber-200 rounded-lg px-3 sm:px-4 mb-2 sm:mb-4 data-[state=open]:bg-amber-50 transition-colors"
                 >
-                  <AccordionTrigger className="text-left py-4 hover:no-underline">
-                    <span className="text-lg font-medium text-amber-900">{faq.question}</span>
+                  <AccordionTrigger className="text-left py-3 sm:py-4 hover:no-underline">
+                    <span className="text-base sm:text-lg font-medium text-amber-900">{faq.question}</span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-amber-800 pb-4 pt-2">
+                  <AccordionContent className="text-sm sm:text-base text-amber-800 pb-3 sm:pb-4 pt-1 sm:pt-2">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
