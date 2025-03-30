@@ -93,9 +93,9 @@ export default function ProductDetail({ params }) {
         {/* ... existing navigation code ... */}
       </nav>
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-8">
         {/* Breadcrumb */}
-        <div className="text-sm breadcrumbs mb-8">
+        <div className="text-xs sm:text-sm breadcrumbs mb-4 sm:mb-8">
           <Link href="/" className="text-gray-600 hover:text-amber-600">
             Home
           </Link>
@@ -108,12 +108,12 @@ export default function ProductDetail({ params }) {
         </div>
 
         {/* Main content wrapper */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="bg-white rounded-lg sm:rounded-xl shadow-sm border border-gray-100 p-3 sm:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
             {/* Left Column - Sticky Images */}
             <div className="md:sticky md:top-4" style={{ height: 'fit-content' }}>
-              <div className="space-y-4">
-                <div className="relative aspect-square rounded-xl overflow-hidden border border-gray-200">
+              <div className="space-y-3 sm:space-y-4">
+                <div className="relative aspect-square rounded-lg sm:rounded-xl overflow-hidden border border-gray-200">
                   <Image
                     src={productImages[selectedImage] || "/placeholder.svg"}
                     alt={product.name}
@@ -121,7 +121,7 @@ export default function ProductDetail({ params }) {
                     className="object-cover"
                   />
                 </div>
-                <div className="grid grid-cols-5 gap-2">
+                <div className="grid grid-cols-5 sm:grid-cols-5 gap-1.5 sm:gap-2">
                   {productImages.map((image, index) => (
                     <button
                       key={index}
@@ -138,51 +138,52 @@ export default function ProductDetail({ params }) {
             </div>
 
             {/* Right Column - Scrollable Content */}
-            <div className="space-y-6 relative">
+            <div className="space-y-4 sm:space-y-6 relative">
               {/* Main content */}
-              <div className="space-y-6 pb-24"> {/* Added padding bottom to prevent content being hidden behind sticky buttons */}
-                <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
+              <div className="space-y-4 sm:space-y-6 pb-20 sm:pb-24">
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">{product.name}</h1>
                 
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-3 sm:space-x-4">
                   <div className="flex items-center">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
+                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 fill-current" />
                     ))}
                   </div>
-                  <span className="text-amber-600">42 ratings</span>
+                  <span className="text-sm sm:text-base text-amber-600">42 ratings</span>
                 </div>
 
-                <div className="text-3xl font-bold text-gray-900">${product.price.toFixed(2)}</div>
+                <div className="text-2xl sm:text-3xl font-bold text-gray-900">${product.price.toFixed(2)}</div>
 
                 {/* Services Highlights */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-white rounded-xl overflow-hidden border border-gray-200">
-                  <div className="flex items-center p-4 bg-gradient-to-r from-green-50 to-white border-b sm:border-b-0 sm:border-r border-gray-200">
-                    <ShieldCheck className="h-8 w-8 text-green-600 flex-shrink-0" />
-                    <div className="ml-4">
-                      <h4 className="font-semibold text-gray-900">1 Year Warranty</h4>
-                      <p className="text-sm text-gray-600">Hassle-free warranty</p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 bg-white rounded-lg sm:rounded-xl overflow-hidden border border-gray-200">
+                  <div className="flex items-center p-3 sm:p-4 bg-gradient-to-r from-green-50 to-white border-b sm:border-b-0 sm:border-r border-gray-200">
+                    <ShieldCheck className="h-6 w-6 sm:h-8 sm:w-8 text-green-600 flex-shrink-0" />
+                    <div className="ml-3 sm:ml-4">
+                      <h4 className="text-sm sm:text-base font-semibold text-gray-900">1 Year Warranty</h4>
+                      <p className="text-xs sm:text-sm text-gray-600">Hassle-free warranty</p>
                     </div>
                   </div>
-                  <div className="flex items-center p-4 bg-gradient-to-r from-blue-50 to-white border-b sm:border-b-0 sm:border-r border-gray-200">
-                    <Package className="h-8 w-8 text-blue-600 flex-shrink-0" />
-                    <div className="ml-4">
-                      <h4 className="font-semibold text-gray-900">Free Delivery</h4>
-                      <p className="text-sm text-gray-600">On all orders</p>
+                  <div className="flex items-center p-3 sm:p-4 bg-gradient-to-r from-blue-50 to-white border-b sm:border-b-0 sm:border-r border-gray-200">
+                    <Package className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600 flex-shrink-0" />
+                    <div className="ml-3 sm:ml-4">
+                      <h4 className="text-sm sm:text-base font-semibold text-gray-900">Free Delivery</h4>
+                      <p className="text-xs sm:text-sm text-gray-600">On all orders</p>
                     </div>
                   </div>
-                  <div className="flex items-center p-4 bg-gradient-to-r from-amber-50 to-white">
-                    <RefreshCw className="h-8 w-8 text-amber-600 flex-shrink-0" />
-                    <div className="ml-4">
-                      <h4 className="font-semibold text-gray-900">Easy Returns</h4>
-                      <p className="text-sm text-gray-600">7 days return policy</p>
+                  <div className="flex items-center p-3 sm:p-4 bg-gradient-to-r from-amber-50 to-white">
+                    <RefreshCw className="h-6 w-6 sm:h-8 sm:w-8 text-amber-600 flex-shrink-0" />
+                    <div className="ml-3 sm:ml-4">
+                      <h4 className="text-sm sm:text-base font-semibold text-gray-900">Easy Returns</h4>
+                      <p className="text-xs sm:text-sm text-gray-600">7 days return policy</p>
                     </div>
                   </div>
                 </div>
+
                 {/* Delivery Check */}
-                <div className="bg-gray-50 rounded-lg p-4 space-y-3">
+                <div className="bg-gray-50 rounded-lg p-3 sm:p-4 space-y-2 sm:space-y-3">
                   <div className="flex items-center space-x-2">
-                    <MapPin className="w-5 h-5 text-gray-600" />
-                    <span className="text-gray-700">Check Delivery</span>
+                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
+                    <span className="text-sm sm:text-base text-gray-700">Check Delivery</span>
                   </div>
                   <div className="flex space-x-2">
                     <Input
@@ -191,18 +192,18 @@ export default function ProductDetail({ params }) {
                       value={pincode}
                       onChange={(e) => setPincode(e.target.value)}
                       maxLength={6}
-                      className="w-40"
+                      className="w-32 sm:w-40 text-sm"
                     />
                     <Button 
                       onClick={checkDelivery}
                       variant="outline"
-                      className="border-amber-200 hover:border-amber-300 hover:bg-amber-50"
+                      className="border-amber-200 hover:border-amber-300 hover:bg-amber-50 text-sm"
                     >
                       Check
                     </Button>
                   </div>
                   {deliveryDate && (
-                    <div className="flex items-center space-x-2 text-green-600">
+                    <div className="flex items-center space-x-2 text-green-600 text-sm">
                       <Truck className="w-4 h-4" />
                       <span>Delivery by {deliveryDate}</span>
                     </div>
@@ -210,21 +211,21 @@ export default function ProductDetail({ params }) {
                 </div>
 
                 {/* Offers */}
-                <div className="space-y-3">
-                  <h3 className="font-semibold text-gray-900 flex items-center">
-                    <Tag className="w-5 h-5 mr-2 text-amber-600" />
+                <div className="space-y-2 sm:space-y-3">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 flex items-center">
+                    <Tag className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-amber-600" />
                     Available Offers
                   </h3>
                   <div className="space-y-2">
                     {offers.map((offer, index) => (
-                      <div key={index} className="bg-gray-50 rounded-lg p-4">
-                        <div className="flex items-start space-x-3">
+                      <div key={index} className="bg-gray-50 rounded-lg p-3 sm:p-4">
+                        <div className="flex items-start space-x-2 sm:space-x-3">
                           <Tag className="w-4 h-4 text-green-600 mt-1 flex-shrink-0" />
                           <div>
-                            <h4 className="font-medium text-gray-900">{offer.title}</h4>
-                            <p className="text-sm text-gray-600">{offer.description}</p>
+                            <h4 className="text-sm sm:text-base font-medium text-gray-900">{offer.title}</h4>
+                            <p className="text-xs sm:text-sm text-gray-600">{offer.description}</p>
                             {offer.code && (
-                              <span className="text-sm font-medium text-amber-600">
+                              <span className="text-xs sm:text-sm font-medium text-amber-600">
                                 Use code: {offer.code}
                               </span>
                             )}
@@ -236,12 +237,12 @@ export default function ProductDetail({ params }) {
                 </div>
 
                 {/* Product Highlights */}
-                <div className="space-y-3">
-                  <h3 className="font-semibold text-gray-900 flex items-center">
-                    <Info className="w-5 h-5 mr-2 text-amber-600" />
+                <div className="space-y-2 sm:space-y-3">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 flex items-center">
+                    <Info className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-amber-600" />
                     Product Highlights
                   </h3>
-                  <ul className="list-disc list-inside space-y-2 text-gray-700">
+                  <ul className="list-disc list-inside space-y-1.5 sm:space-y-2 text-sm sm:text-base text-gray-700">
                     {highlights.map((highlight, index) => (
                       <li key={index}>{highlight}</li>
                     ))}
@@ -249,31 +250,30 @@ export default function ProductDetail({ params }) {
                 </div>
 
                 {/* Share and Wishlist */}
-                <div className="flex space-x-4 justify-end pt-4 border-t border-gray-100">
+                <div className="flex space-x-3 sm:space-x-4 justify-end pt-3 sm:pt-4 border-t border-gray-100">
                   <Button variant="outline" size="icon" className="text-gray-600 hover:text-amber-600 border-gray-200">
-                    <Heart className="h-5 w-5" />
+                    <Heart className="h-4 w-4 sm:h-5 sm:w-5" />
                   </Button>
                   <Button variant="outline" size="icon" className="text-gray-600 hover:text-amber-600 border-gray-200">
-                    <Share2 className="h-5 w-5" />
+                    <Share2 className="h-4 w-4 sm:h-5 sm:w-5" />
                   </Button>
                 </div>
               </div>
 
               {/* Sticky Purchase Options */}
-              <div className="sticky bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4">
-                <div className="flex items-center gap-4">
-                  {/* <QuantitySelector product={product} className="flex-shrink-0" /> */}
+              <div className="sticky bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 sm:p-4">
+                <div className="flex items-center gap-3 sm:gap-4">
                   <div className="flex gap-2 flex-1">
                     <Button 
                       size="lg" 
                       variant="outline"
-                      className="flex-1 border-amber-200 hover:border-amber-300 hover:bg-amber-50 text-gray-800 font-semibold py-6"
+                      className="flex-1 border-amber-200 hover:border-amber-300 hover:bg-amber-50 text-gray-800 font-semibold py-4 sm:py-6 text-sm sm:text-base"
                     >
                       Add to Cart
                     </Button>
                     <Button 
                       size="lg" 
-                      className="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-semibold py-6"
+                      className="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-semibold py-4 sm:py-6 text-sm sm:text-base"
                     >
                       Buy Now
                     </Button>
@@ -284,18 +284,18 @@ export default function ProductDetail({ params }) {
           </div>
 
           {/* Product Description */}
-          <div className="mt-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Product Description</h2>
-            <div className="prose max-w-none text-gray-700">
+          <div className="mt-8 sm:mt-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">Product Description</h2>
+            <div className="prose max-w-none text-sm sm:text-base text-gray-700">
               <p>{product.description}</p>
             </div>
           </div>
 
           {/* Product Specifications */}
-          <div className="mt-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Product Specifications</h2>
+          <div className="mt-8 sm:mt-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">Product Specifications</h2>
             
-            <div className="overflow-hidden border border-gray-200 rounded-xl">
+            <div className="overflow-hidden border border-gray-200 rounded-lg sm:rounded-xl">
               <table className="min-w-full divide-y divide-gray-200">
                 <tbody className="divide-y divide-gray-200">
                   <tr className="bg-gray-50">
@@ -371,53 +371,53 @@ export default function ProductDetail({ params }) {
           </div>
 
           {/* Customer Reviews Section */}
-          <div className="mt-12 border-t border-gray-100 pt-8">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-3xl font-bold text-gray-900">Customer Reviews</h2>
+          <div className="mt-8 sm:mt-12 border-t border-gray-100 pt-6 sm:pt-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-0">Customer Reviews</h2>
               <div className="flex items-center space-x-2">
                 <div className="flex items-center">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
+                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 fill-current" />
                   ))}
                 </div>
-                <span className="text-lg font-semibold text-gray-900">4.8</span>
-                <span className="text-gray-600">(42 reviews)</span>
+                <span className="text-base sm:text-lg font-semibold text-gray-900">4.8</span>
+                <span className="text-sm sm:text-base text-gray-600">(42 reviews)</span>
               </div>
             </div>
 
             {/* Review Filters */}
-            <div className="flex space-x-4 mb-6">
-              <Button variant="outline" size="sm" className="text-gray-700 border-gray-200 hover:border-amber-500 hover:text-amber-600">All Reviews</Button>
-              <Button variant="outline" size="sm" className="text-gray-700 border-gray-200 hover:border-amber-500 hover:text-amber-600">5 Star</Button>
-              <Button variant="outline" size="sm" className="text-gray-700 border-gray-200 hover:border-amber-500 hover:text-amber-600">4 Star</Button>
-              <Button variant="outline" size="sm" className="text-gray-700 border-gray-200 hover:border-amber-500 hover:text-amber-600">3 Star</Button>
-              <Button variant="outline" size="sm" className="text-gray-700 border-gray-200 hover:border-amber-500 hover:text-amber-600">2 Star</Button>
-              <Button variant="outline" size="sm" className="text-gray-700 border-gray-200 hover:border-amber-500 hover:text-amber-600">1 Star</Button>
+            <div className="flex flex-wrap gap-2 sm:gap-4 mb-4 sm:mb-6">
+              <Button variant="outline" size="sm" className="text-xs sm:text-sm text-gray-700 border-gray-200 hover:border-amber-500 hover:text-amber-600">All Reviews</Button>
+              <Button variant="outline" size="sm" className="text-xs sm:text-sm text-gray-700 border-gray-200 hover:border-amber-500 hover:text-amber-600">5 Star</Button>
+              <Button variant="outline" size="sm" className="text-xs sm:text-sm text-gray-700 border-gray-200 hover:border-amber-500 hover:text-amber-600">4 Star</Button>
+              <Button variant="outline" size="sm" className="text-xs sm:text-sm text-gray-700 border-gray-200 hover:border-amber-500 hover:text-amber-600">3 Star</Button>
+              <Button variant="outline" size="sm" className="text-xs sm:text-sm text-gray-700 border-gray-200 hover:border-amber-500 hover:text-amber-600">2 Star</Button>
+              <Button variant="outline" size="sm" className="text-xs sm:text-sm text-gray-700 border-gray-200 hover:border-amber-500 hover:text-amber-600">1 Star</Button>
             </div>
 
             {/* Reviews List */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {/* Review with Images */}
-              <div className="border-b pb-6">
-                <div className="flex items-center space-x-2 mb-2">
+              <div className="border-b pb-4 sm:pb-6">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
                   <div className="flex items-center">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 text-amber-400 fill-current" />
                     ))}
                   </div>
-                  <span className="font-semibold">Verified Purchase</span>
+                  <span className="text-sm font-semibold">Verified Purchase</span>
                   <span className="text-amber-500">•</span>
-                  <span className="text-amber-500">3 days ago</span>
+                  <span className="text-amber-500 text-sm">3 days ago</span>
                 </div>
-                <h3 className="font-semibold mb-2">Perfect product with great quality!</h3>
-                <p className="text-amber-600 mb-4">
+                <h3 className="text-sm sm:text-base font-semibold mb-2">Perfect product with great quality!</h3>
+                <p className="text-sm text-amber-600 mb-3 sm:mb-4">
                   I'm extremely satisfied with this purchase. The build quality is outstanding, 
                   and it works exactly as advertised. The packaging was secure and the delivery 
                   was prompt. Here are some photos of the product in use:
                 </p>
                 
                 {/* Review Images Grid */}
-                <div className="grid grid-cols-4 md:grid-cols-6 gap-2 mb-4">
+                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                   {reviewImages.map((image, index) => (
                     <div 
                       key={index}
@@ -438,19 +438,19 @@ export default function ProductDetail({ params }) {
                   ))}
                 </div>
 
-                <div className="flex items-center space-x-4">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                   <div className="flex items-center space-x-2">
                     <Image
                       src="/placeholder.svg"
                       alt="Reviewer"
-                      width={32}
-                      height={32}
+                      width={28}
+                      height={28}
                       className="rounded-full"
                     />
-                    <span className="font-medium">Mike R.</span>
+                    <span className="text-sm font-medium">Mike R.</span>
                   </div>
-                  <Button variant="outline" size="sm">Helpful</Button>
-                  <Button variant="outline" size="sm">Report</Button>
+                  <Button variant="outline" size="sm" className="text-xs">Helpful</Button>
+                  <Button variant="outline" size="sm" className="text-xs">Report</Button>
                 </div>
               </div>
 
@@ -528,69 +528,69 @@ export default function ProductDetail({ params }) {
               )}
 
               {/* Sample Review 1 */}
-              <div className="border-b pb-6">
-                <div className="flex items-center space-x-2 mb-2">
+              <div className="border-b pb-4 sm:pb-6">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
                   <div className="flex items-center">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 text-amber-400 fill-current" />
                     ))}
                   </div>
-                  <span className="font-semibold">Verified Purchase</span>
+                  <span className="text-sm font-semibold">Verified Purchase</span>
                   <span className="text-amber-500">•</span>
-                  <span className="text-amber-500">2 days ago</span>
+                  <span className="text-amber-500 text-sm">2 days ago</span>
                 </div>
-                <h3 className="font-semibold mb-2">Great product, exactly as described!</h3>
-                <p className="text-amber-600 mb-4">
+                <h3 className="text-sm sm:text-base font-semibold mb-2">Great product, exactly as described!</h3>
+                <p className="text-sm text-amber-600 mb-3 sm:mb-4">
                   I'm really happy with this purchase. The quality is excellent and it works perfectly. 
                   The delivery was fast and the packaging was secure. Would definitely recommend!
                 </p>
-                <div className="flex items-center space-x-4">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                   <div className="flex items-center space-x-2">
                     <Image
                       src="/placeholder.svg"
                       alt="Reviewer"
-                      width={32}
-                      height={32}
+                      width={28}
+                      height={28}
                       className="rounded-full"
                     />
-                    <span className="font-medium">John D.</span>
+                    <span className="text-sm font-medium">John D.</span>
                   </div>
-                  <Button variant="outline" size="sm">Helpful</Button>
-                  <Button variant="outline" size="sm">Report</Button>
+                  <Button variant="outline" size="sm" className="text-xs">Helpful</Button>
+                  <Button variant="outline" size="sm" className="text-xs">Report</Button>
                 </div>
               </div>
 
               {/* Sample Review 2 */}
-              <div className="border-b pb-6">
-                <div className="flex items-center space-x-2 mb-2">
+              <div className="border-b pb-4 sm:pb-6">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
                   <div className="flex items-center">
                     {[...Array(4)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 text-amber-400 fill-current" />
                     ))}
                   </div>
-                  <span className="font-semibold">Verified Purchase</span>
+                  <span className="text-sm font-semibold">Verified Purchase</span>
                   <span className="text-amber-500">•</span>
-                  <span className="text-amber-500">1 week ago</span>
+                  <span className="text-amber-500 text-sm">1 week ago</span>
                 </div>
-                <h3 className="font-semibold mb-2">Good value for money</h3>
-                <p className="text-amber-600 mb-4">
+                <h3 className="text-sm sm:text-base font-semibold mb-2">Good value for money</h3>
+                <p className="text-sm text-amber-600 mb-3 sm:mb-4">
                   The product meets my expectations. It's durable and well-made. 
                   The only reason I gave it 4 stars instead of 5 is that the instructions 
                   could be a bit clearer.
                 </p>
-                <div className="flex items-center space-x-4">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                   <div className="flex items-center space-x-2">
                     <Image
                       src="/placeholder.svg"
                       alt="Reviewer"
-                      width={32}
-                      height={32}
+                      width={28}
+                      height={28}
                       className="rounded-full"
                     />
-                    <span className="font-medium">Sarah M.</span>
+                    <span className="text-sm font-medium">Sarah M.</span>
                   </div>
-                  <Button variant="outline" size="sm">Helpful</Button>
-                  <Button variant="outline" size="sm">Report</Button>
+                  <Button variant="outline" size="sm" className="text-xs">Helpful</Button>
+                  <Button variant="outline" size="sm" className="text-xs">Report</Button>
                 </div>
               </div>
 
