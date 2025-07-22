@@ -8,6 +8,7 @@ import { CheckoutModal } from "@/components/checkout-modal"
 
 export function CartSheet() {
   const { items, removeItem, updateQuantity, total } = useCart()
+  console.log(items,'------items------')
   const [open, setOpen] = useState(false)
   const [checkoutOpen, setCheckoutOpen] = useState(false)
 
@@ -37,7 +38,7 @@ export function CartSheet() {
                   <div key={item.id} className="flex items-center gap-4 py-3">
                     <div className="relative w-20 h-20">
                       <Image
-                        src={item.image || "/placeholder.svg"}
+                        src={item.image?.[0] || "/placeholder.svg"}
                         alt={item.name}
                         fill
                         className="object-cover rounded-md"
