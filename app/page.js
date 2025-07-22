@@ -164,7 +164,7 @@ export default function Home() {
                     <h3 className="font-semibold text-sm md:text-lg mb-1 md:mb-2 text-amber-900 line-clamp-1">{product.name}</h3>
                     <p className="text-amber-700 mb-2 md:mb-4 text-xs md:text-sm line-clamp-2">{product.description}</p>
                     <div className="flex items-center justify-between">
-                      <span className="text-base md:text-xl font-bold text-amber-800">${product.price}</span>
+                      <span className="text-base md:text-xl font-bold text-amber-800">₹{product.price}</span>
                       <QuantitySelector product={product} />
                     </div>
                   </div>

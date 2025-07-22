@@ -45,7 +45,7 @@ export function CartSheet() {
                     </div>
                     <div className="flex-1">
                       <h3 className="font-medium">{item.name}</h3>
-                      <p className="text-sm text-muted-foreground">${item.price.toFixed(2)}</p>
+                      <p className="text-sm text-muted-foreground">₹{item.price.toFixed(2)}</p>
                       <div className="flex items-center gap-2 mt-2">
                         <Button
                           variant="outline"
@@ -78,7 +78,7 @@ export function CartSheet() {
                 <div className="border-t pt-4">
                   <div className="flex justify-between text-lg font-medium">
                     <span>Total</span>
-                    <span>${total().toFixed(2)}</span>
+                    <span>₹{total().toFixed(2)}</span>
                   </div>
                   <Button
                     className="w-full mt-4"

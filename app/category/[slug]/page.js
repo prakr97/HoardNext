@@ -152,7 +152,7 @@ export default function CategoryPage({ params }) {
                     <h3 className="font-semibold text-sm md:text-lg mb-1 md:mb-2 text-amber-900 line-clamp-1">{product.name}</h3>
                     <p className="text-amber-700 mb-2 md:mb-4 text-xs md:text-sm line-clamp-2">{product.description}</p>
                     <div className="flex items-center justify-between">
-                      <span className="text-base md:text-xl font-bold text-amber-800">${product.price.toFixed(2)}</span>
+                      <span className="text-base md:text-xl font-bold text-amber-800">₹{product.price.toFixed(2)}</span>
                       <div className="flex items-center gap-1">
                         <Star className="w-4 h-4 text-amber-400 fill-current" />
                         <span className="text-sm text-gray-600">{product.rating}</span>

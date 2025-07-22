@@ -152,7 +152,7 @@ export default function ProductDetail({ params }) {
                   <span className="text-sm sm:text-base text-amber-600">42 ratings</span>
                 </div>
 
-                <div className="text-2xl sm:text-3xl font-bold text-gray-900">${product.price.toFixed(2)}</div>
+                <div className="text-2xl sm:text-3xl font-bold text-gray-900">₹{product.price.toFixed(2)}</div>
 
                 {/* Services Highlights */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 bg-white rounded-lg sm:rounded-xl overflow-hidden border border-gray-200">

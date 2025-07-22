@@ -37,7 +37,7 @@ export function QuantitySelector({ product }) {
               setQuantity(1)
             }}
           >
-            Add to Cart - ${(product.price * quantity).toFixed(2)}
+            Add to Cart - ₹{(product.price * quantity).toFixed(2)}
           </Button>
         </div>
       </DialogContent>

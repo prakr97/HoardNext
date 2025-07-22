@@ -36,7 +36,7 @@ export default function FeaturedProductsAdmin() {
               </div>
               <p className="text-sm text-gray-600 mb-2">{product.description}</p>
               <div className="flex justify-between items-center">
-                <span className="font-bold">${product.price.toFixed(2)}</span>
+                <span className="font-bold">₹{product.price.toFixed(2)}</span>
                 <Button variant="outline" onClick={() => removeFromFeatured(product.id)}>
                   Remove from Featured
                 </Button>

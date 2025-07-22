@@ -125,12 +125,12 @@ export function CheckoutModal({ open, onOpenChange }) {
                   <span>
                     {item.name} x {item.quantity}
                   </span>
-                  <span>${(item.price * item.quantity).toFixed(2)}</span>
+                  <span>₹{(item.price * item.quantity).toFixed(2)}</span>
                 </div>
               ))}
               <div className="font-bold mt-2 text-lg">
                 <span>Total:</span>
-                <span className="float-right">${total().toFixed(2)}</span>
+                <span className="float-right">₹{total().toFixed(2)}</span>
               </div>
             </div>
             <Button onClick={handlePlaceOrder} className="w-full" disabled={isLoading}>

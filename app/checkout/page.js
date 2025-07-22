@@ -100,12 +100,12 @@ export default function CheckoutPage() {
                 <span>
                   {item.name} x {item.quantity}
                 </span>
-                <span>${(item.price * item.quantity).toFixed(2)}</span>
+                <span>₹{(item.price * item.quantity).toFixed(2)}</span>
               </div>
             ))}
             <div className="font-bold mt-2">
               <span>Total:</span>
-              <span>${total().toFixed(2)}</span>
+              <span>₹{total().toFixed(2)}</span>
             </div>
           </div>
           <Button onClick={handlePlaceOrder} className="w-full">
