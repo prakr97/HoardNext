@@ -58,7 +58,7 @@ export default function CategoryPage({ params }) {
   const featuredCollection = {
     title: "Featured Collection",
     description: "Handpicked selection of our best-selling {category.name}",
-    products: categoryProducts.slice(0, 4).map(product => ({
+    products: categoryProducts.map(product => ({
       ...product,
       image: product.image?.[0] || "/placeholder.svg",
       rating: 4.8,

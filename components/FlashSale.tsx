@@ -12,10 +12,10 @@ const flashSaleProducts = [
     id: 'flash-1',
     name: 'Smart LED Ceiling Light',
     description: 'Voice-controlled, color-changing smart ceiling light',
-    price: 4999,
-    originalPrice: 6999,
-    discount: 30,
-    image: "https://images.unsplash.com/photo-1546435770-a3e736c05a2f?ixlib=rb-4.0.3",
+    price: 270,
+    originalPrice: 400,
+    discount: 33,
+    image: "https://m.media-amazon.com/images/I/615pVwt1rNL._SL1500_.jpg",
     featured: true,
     isMobile: true
   },
@@ -23,10 +23,10 @@ const flashSaleProducts = [
     id: 'flash-2',
     name: 'Modern Wall Sconce',
     description: 'Elegant wall-mounted lighting fixture with adjustable brightness',
-    price: 2499,
-    originalPrice: 3299,
-    discount: 25,
-    image: "https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3",
+    price: 255,
+    originalPrice: 400,
+    discount: 36,
+    image: "https://m.media-amazon.com/images/I/51m+1Rp+aLL.jpg",
     featured: true,
     isMobile: true
   },
@@ -34,10 +34,10 @@ const flashSaleProducts = [
     id: 'flash-3',
     name: 'Designer Table Lamp',
     description: 'Contemporary table lamp with touch control and USB charging',
-    price: 1999,
-    originalPrice: 2799,
-    discount: 28,
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-4.0.3",
+    price: 255,
+    originalPrice: 400,
+    discount: 36,
+    image: "https://m.media-amazon.com/images/I/71-PT5mLtuL._SL1500_.jpg",
     featured: true,
     isMobile: false
   }
@@ -116,7 +116,7 @@ export function FlashSale() {
               </div>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">Flash Sale on Premium Products</h2>
               <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4">
-                Don't miss out on our exclusive deals for high-quality products. Up to 30% off
+                Don't miss out on our exclusive deals for high-quality products. Up to 36% off
                 on selected items for a limited time only.
               </p>
               
@@ -137,7 +137,7 @@ export function FlashSale() {
                   <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  2-year warranty
+                  1-year warranty
                 </div>
               </div>
               
