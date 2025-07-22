@@ -30,7 +30,9 @@ export function CheckoutModal({ open, onOpenChange }) {
     if (step === "details") {
       // Simulate OTP send
       await new Promise((resolve) => setTimeout(resolve, 1000))
-      setStep("otp")
+      // setStep("otp")
+      setStep("review")
+
     } else if (step === "otp") {
       // Simulate OTP verification
       await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -102,7 +104,8 @@ export function CheckoutModal({ open, onOpenChange }) {
                   Please wait
                 </>
               ) : step === "details" ? (
-                "Send OTP"
+                // "Send OTP"
+                'Next'
               ) : (
                 "Verify OTP"
               )}
@@ -117,6 +120,7 @@ export function CheckoutModal({ open, onOpenChange }) {
               <p>{formData.address}</p>
               <p>Pincode: {formData.pincode}</p>
               <p>Phone: {formData.phone}</p>
+              <p>Payment Method: Cash on Delivery (COD)</p>
             </div>
             <div>
               <h3 className="font-semibold mb-2">Order Summary:</h3>
@@ -140,7 +144,7 @@ export function CheckoutModal({ open, onOpenChange }) {
                   Processing Order
                 </>
               ) : (
-                "Place COD Order"
+                "Place Order"
               )}
             </Button>
           </div>
