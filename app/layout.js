@@ -46,13 +46,13 @@ export default function RootLayout({ children }) {
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="relative hidden md:block">
-                    <Input type="search" placeholder="Search products..." className="w-64 pl-10" />
-                    <SearchIcon className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                  </div>
-                  <Button variant="ghost" size="icon">
+                  {/* <div className="relative hidden md:block"> */}
+                    {/* <Input type="search" placeholder="Search products..." className="w-64 pl-10" /> */}
+                    {/* <SearchIcon className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" /> */}
+                  {/* </div> */}
+                  {/* <Button variant="ghost" size="icon">
                     <Heart className="h-5 w-5" />
-                  </Button>
+                  </Button> */}
                   <CartSheet />
                 </div>
               </div>
