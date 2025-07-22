@@ -150,15 +150,16 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-3 gap-y-4 md:gap-x-8 md:gap-y-12">
             {featuredProducts.map((product) => (
-              <Link href={`/product/${product.id}`} key={product.id}>
-                <div className="bg-white rounded-lg md:rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 border border-amber-100">
+              <div className="bg-white rounded-lg md:rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 border border-amber-100">
                   <div className="aspect-[4/3] md:aspect-square relative">
+                  <Link href={`/product/${product.id}`} key={product.id}>
                     <Image src={product.image?.[0] || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
                     <div className="absolute top-1 right-1 md:top-2 md:right-2">
                       <div className="bg-amber-100 text-amber-800 px-2 py-0.5 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-medium">
                         Featured
                       </div>
                     </div>
+                    </Link>
                   </div>
                   <div className="p-2 md:p-6">
                     <h3 className="font-semibold text-sm md:text-lg mb-1 md:mb-2 text-amber-900 line-clamp-1">{product.name}</h3>
@@ -169,7 +170,6 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </Link>
             ))}
           </div>
         </div>
