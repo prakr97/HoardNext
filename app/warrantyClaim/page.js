@@ -243,7 +243,7 @@ export default function TrackOrderPage() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-base font-semibold">Email (Optional)</Label>
+            <Label htmlFor="email" className="text-base font-semibold">Email</Label>
             <Input
               id="email"
               name="email"
@@ -262,7 +262,7 @@ export default function TrackOrderPage() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="address" className="text-base font-semibold">Address (Optional)</Label>
+            <Label htmlFor="address" className="text-base font-semibold">Address</Label>
             <Textarea
               id="address"
               name="address"
