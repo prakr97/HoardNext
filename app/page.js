@@ -149,8 +149,8 @@ export default function Home() {
             <p className="text-amber-700">Discover our most popular and trending items</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-3 gap-y-4 md:gap-x-8 md:gap-y-12">
-            {featuredProducts.map((product) => (
-              <div className="bg-white rounded-lg md:rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 border border-amber-100">
+            {featuredProducts.map((product,index) => (
+              <div key={index} className="bg-white rounded-lg md:rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 border border-amber-100">
                   <div className="aspect-[4/3] md:aspect-square relative">
                   <Link href={`/product/${product.id}`} key={product.id}>
                     <Image src={product.image?.[0] || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
