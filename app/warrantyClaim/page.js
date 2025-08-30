@@ -100,23 +100,13 @@ export default function TrackOrderPage() {
               ]
           })
       })
-        .then((response) => response.json())
-        .then((data) => console.log(data));
       
-      if (!response.ok) {
+      if (!(response.created===1)) {
         throw new Error(`Failed to submit warranty claim: ${response.status}`)
       }
       
-      const result = await response.json()
-      console.log('API Response:', result)
-      
-      // Check if the API returned a success message
-      if (result && result.created) {
-        console.log(`Successfully created ${result.created} record(s)`)
-      }
-
       setSubmitStatus('success')
-      // Optional: Reset form after successful submission
+    
       setFormData({
         orderNo: "",
         platform: "",
