@@ -96,7 +96,6 @@ export default function TrackOrderPage() {
          
       })
 
-      console.log(response,'------11')
       
       if (!(response.data.created===1)) {
         throw new Error(`Failed to submit warranty claim: ${response.status}`)

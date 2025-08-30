@@ -19,7 +19,7 @@ import { usePathname } from 'next/navigation'
 
 export default function RootLayout({ children }) {
   const pathname = usePathname()
-  const hideNavbar = pathname === '/warrantyClaim'
+  const hideNavbar = false // Show navbar on all pages including warranty claim
   return (
     <html lang="en">
       <body className={`min-h-screen flex flex-col`}>
@@ -33,16 +33,16 @@ export default function RootLayout({ children }) {
                   </Link>
 
                   <div className="hidden md:flex items-center space-x-8">
-                    <Link href="/products" className="text-gray-600 hover:text-gray-900">
+                    <Link href="/" className="text-gray-600 hover:text-gray-900">
                       Products
                     </Link>
-                    <Link href="/collections" className="text-gray-600 hover:text-gray-900">
+                    <Link href="/" className="text-gray-600 hover:text-gray-900">
                       Collections
                     </Link>
-                    <Link href="/deals" className="text-gray-600 hover:text-gray-900">
+                    <Link href="/" className="text-gray-600 hover:text-gray-900">
                       Deals
                     </Link>
-                    <Link href="/support" className="text-gray-600 hover:text-gray-900">
+                    <Link href="/" className="text-gray-600 hover:text-gray-900">
                       Support
                     </Link>
                   </div>
