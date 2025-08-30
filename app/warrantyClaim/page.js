@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import axios from "axios"
 
 export default function TrackOrderPage() {
   const [formData, setFormData] = useState({
@@ -88,20 +89,16 @@ export default function TrackOrderPage() {
 
     try {
 
-      const response = await fetch(`https://sheetdb.io/api/v1/a3dz2tla6x4kk`, {
-          method: 'POST',
-          headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
+      const response = await axios.post(`https://sheetdb.io/api/v1/a3dz2tla6x4kk`, {
               data: [
                   formData
               ]
-          })
+         
       })
+
+      console.log(response,'------11')
       
-      if (!(response.created===1)) {
+      if (!(response.data.created===1)) {
         throw new Error(`Failed to submit warranty claim: ${response.status}`)
       }
       
