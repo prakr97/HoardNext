@@ -145,14 +145,14 @@ export default function TrackOrderPage() {
                   Please enter your order details below to submit a warranty claim
                 </p>
               </div>
-              <Button
+              {/* <Button
                 type="button"
                 variant="outline"
                 onClick={fillDummyData}
                 className="text-sm px-3 py-1.5 border-gray-300 text-gray-600 hover:bg-gray-50"
               >
                 Fill Test Data
-              </Button>
+              </Button> */}
             </div>
           </div>
         <form onSubmit={handleSubmit} className="space-y-6">
