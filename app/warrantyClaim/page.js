@@ -31,9 +31,9 @@ export default function TrackOrderPage() {
   const validateForm = () => {
     const newErrors = {}
     
-    if (!formData.orderNo.match(/^[a-zA-Z0-9]{5,}$/)) {
-      newErrors.orderNo = "Order number must be at least 5 alphanumeric characters"
-    }
+    // if (!formData.orderNo.match(/^[a-zA-Z0-9]{5,}$/)) {
+    //   newErrors.orderNo = "Order number must be at least 5 alphanumeric characters"
+    // }
 
     if (!formData.platform) {
       newErrors.platform = "Please select a platform"
